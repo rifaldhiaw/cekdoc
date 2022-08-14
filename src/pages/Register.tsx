@@ -25,29 +25,36 @@ export const Register = () => {
       </Heading>
       <Box h="24" />
 
-      <Flex flexDir="column">
-        <InputGroup>
+      <Flex flexDir="column" w="80%">
+        <InputGroup size="lg">
           <InputLeftElement
             pointerEvents="none"
             children={<Icon as={FiUser} color="bg.300" />}
           />
-          <Input type="name" placeholder="Name" />
+          <Input type="name" placeholder="Name" rounded="full" />
         </InputGroup>
-        <InputGroup mt="2">
+        <InputGroup mt="2" size="lg">
           <InputLeftElement
             pointerEvents="none"
             children={<Icon as={FiPhone} color="bg.300" />}
           />
-          <Input type="tel" placeholder="Nomor Handphone" />
+          <Input type="tel" placeholder="Nomor Handphone" rounded="full" />
         </InputGroup>
-        <Button mt="6" onClick={handleRegister}>
+        <Button
+          mt="6"
+          onClick={handleRegister}
+          size="lg"
+          rounded="full"
+          colorScheme="brand"
+          bgGradient="linear(to-tl, brand.400, brand.300)"
+        >
           Daftar
         </Button>
 
         <Stack mt="8">
           <Text textAlign="center">Sudah mempunyai akun?</Text>
           <Button
-            size="sm"
+            rounded="full"
             onClick={() => navigate("/login")}
             variant="outline"
           >

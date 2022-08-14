@@ -55,24 +55,32 @@ export const Login = () => {
 
       <Box h="24" />
 
-      <Flex flexDir="column">
-        <InputGroup>
+      <Flex flexDir="column" w="80%">
+        <InputGroup size="lg">
           <InputLeftElement
             pointerEvents="none"
             children={<Icon as={FiPhone} color="bg.300" />}
           />
-          <Input type="tel" placeholder="Nomor Telephone" />
+          <Input type="tel" placeholder="Nomor Telephone" rounded="full" />
         </InputGroup>
-        <Button mt="6" onClick={handleLogin} isLoading={isLoading}>
+        <Button
+          mt="6"
+          size="lg"
+          rounded="full"
+          colorScheme="brand"
+          bgGradient="linear(to-tl, brand.400, brand.300)"
+          onClick={handleLogin}
+          isLoading={isLoading}
+        >
           Masuk
         </Button>
 
         <Stack mt="8">
           <Text textAlign="center">Belum mempunyai akun?</Text>
           <Button
-            size="sm"
             onClick={() => navigate("/register")}
             variant="outline"
+            rounded="full"
           >
             Daftar
           </Button>

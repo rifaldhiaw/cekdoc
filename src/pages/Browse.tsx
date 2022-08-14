@@ -74,6 +74,7 @@ export const Browse = () => {
         <Button
           rounded="full"
           colorScheme="brand"
+          bgGradient="linear(to-tl, brand.400, brand.300)"
           pos="fixed"
           bottom="8"
           shadow="lg"
@@ -81,7 +82,6 @@ export const Browse = () => {
           right="12"
           zIndex={10}
           size="lg"
-          bgGradient="linear(to-tl, brand.400, brand.300)"
           onClick={() => navigate("/login")}
         >
           Masuk ke Aplikasi
