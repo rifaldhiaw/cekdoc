@@ -1,7 +1,5 @@
-import { Flex, Icon, IconButton } from "@chakra-ui/react";
-import { FC } from "react";
-import { IconType } from "react-icons";
-import { FiCalendar, FiHome } from "react-icons/fi";
+import { Flex } from "@chakra-ui/react";
+import { FiCalendar, FiHome, FiUser } from "react-icons/fi";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
@@ -11,6 +9,7 @@ import { Schedule } from "./pages/Schedule";
 import { User } from "./pages/User";
 import { RequireAuth } from "./plugin/RequireAuth";
 import { useAuth } from "./store/appStore";
+import { BottomNavButton } from "./ui/BottomNavButton";
 
 function App() {
   useAuth();
@@ -49,43 +48,34 @@ export const BottomNavigation = () => {
   return (
     <Flex
       pos="fixed"
-      bottom="16px"
-      left="24px"
-      right="24px"
-      h="48px"
-      bg="gray.100"
-      rounded="full"
+      bottom="0"
+      left="0"
+      right="0"
+      h="56px"
+      px="6"
+      bg="white"
+      shadow="xl"
+      roundedTop="xl"
+      borderTop="1px"
+      borderTopColor="bg.300"
       overflow="hidden"
     >
       <BottomNavButton
-        label={"Home"}
+        label={"Beranda"}
         icon={FiHome}
         onClick={() => navigate("/")}
       />
       <BottomNavButton
-        label={"Schedule"}
+        label={"Buat janji"}
         icon={FiCalendar}
         onClick={() => navigate("/schedule")}
       />
+      <BottomNavButton
+        label={"Pengguna"}
+        icon={FiUser}
+        onClick={() => navigate("/user")}
+      />
     </Flex>
-  );
-};
-
-export const BottomNavButton: FC<{
-  label: string;
-  icon: IconType;
-  onClick: () => void;
-}> = (props) => {
-  return (
-    <IconButton
-      h="full"
-      rounded="0"
-      flex={1}
-      size="lg"
-      aria-label={props.label}
-      icon={<Icon as={props.icon} />}
-      onClick={props.onClick}
-    />
   );
 };
 

@@ -29,14 +29,14 @@ export const Register = () => {
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
-            children={<Icon as={FiUser} color="gray.300" />}
+            children={<Icon as={FiUser} color="bg.300" />}
           />
           <Input type="name" placeholder="Name" />
         </InputGroup>
         <InputGroup mt="2">
           <InputLeftElement
             pointerEvents="none"
-            children={<Icon as={FiPhone} color="gray.300" />}
+            children={<Icon as={FiPhone} color="bg.300" />}
           />
           <Input type="tel" placeholder="Nomor Handphone" />
         </InputGroup>

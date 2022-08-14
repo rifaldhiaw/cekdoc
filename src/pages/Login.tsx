@@ -59,7 +59,7 @@ export const Login = () => {
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
-            children={<Icon as={FiPhone} color="gray.300" />}
+            children={<Icon as={FiPhone} color="bg.300" />}
           />
           <Input type="tel" placeholder="Nomor Telephone" />
         </InputGroup>
