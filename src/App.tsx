@@ -1,12 +1,12 @@
 import { Flex } from "@chakra-ui/react";
 import { FiCalendar, FiHome, FiUser } from "react-icons/fi";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { Browse } from "./pages/Browse";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Register } from "./pages/Register";
-import { Schedule } from "./pages/Schedule";
-import { User } from "./pages/User";
+import { User } from "./pages/user";
 import { RequireAuth } from "./plugin/RequireAuth";
 import { useAuth } from "./store/appStore";
 import { BottomNavButton } from "./ui/BottomNavButton";
@@ -20,12 +20,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
         <Route path="register" element={<Register />} />
-        <Route index element={<Home />} />
+        <Route index element={<Browse />} />
         <Route
-          path="schedule"
+          path="home"
           element={
             <RequireAuth>
-              <Schedule />
+              <Home />
             </RequireAuth>
           }
         />
@@ -63,12 +63,12 @@ export const BottomNavigation = () => {
       <BottomNavButton
         label={"Beranda"}
         icon={FiHome}
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
       />
       <BottomNavButton
-        label={"Buat janji"}
+        label={"Cari Dokter"}
         icon={FiCalendar}
-        onClick={() => navigate("/schedule")}
+        onClick={() => navigate("/")}
       />
       <BottomNavButton
         label={"Pengguna"}

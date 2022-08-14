@@ -1,4 +1,4 @@
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store/appStore";
 import { AppointmentCard } from "../ui/AppointmentCard";
@@ -54,6 +54,9 @@ export const Home = () => {
         <Stack spacing="4">
           <AppointmentCard />
           <AppointmentCard />
+          <Center py="1" bg="bg.50" rounded="md">
+            <Text>7 janji temu lagi...</Text>
+          </Center>
         </Stack>
       </Box>
 
@@ -66,11 +69,11 @@ export const Home = () => {
         </Flex>
         <Box h="16px" />
         <Stack spacing={3}>
-          <DoctorCard onBook={() => {}} />
-          <DoctorCard onBook={() => {}} />
-          <DoctorCard onBook={() => {}} />
+          <DoctorCard />
+          <DoctorCard />
+          <DoctorCard />
         </Stack>
-        <Box h="100px" />
+        <Box h="80px" />
       </Box>
     </Flex>
   );

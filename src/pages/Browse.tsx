@@ -13,7 +13,7 @@ import {
 import { FiSearch, FiSliders, FiUser } from "react-icons/fi";
 import { DoctorCard } from "../ui/DoctorCard";
 
-export const Schedule = () => {
+export const Browse = () => {
   return (
     <Flex
       w="100vw"
@@ -58,10 +58,10 @@ export const Schedule = () => {
       <Box bg="white" px="8" flex="1" roundedTop="24px">
         <Box h="36px" />
         <Stack spacing={3}>
-          <DoctorCard onBook={() => {}} />
-          <DoctorCard onBook={() => {}} />
-          <DoctorCard onBook={() => {}} />
-          <DoctorCard onBook={() => {}} />
+          <DoctorCard />
+          <DoctorCard />
+          <DoctorCard />
+          <DoctorCard />
         </Stack>
       </Box>
     </Flex>

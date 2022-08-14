@@ -19,7 +19,7 @@ export const BottomNavButton: FC<{
       aria-label={props.label}
       icon={
         <Box>
-          <Icon as={props.icon} w="20px" h="20px" />
+          <Icon as={props.icon} w="20px" h="20px" color="text.normal" />
           <Text fontWeight="normal" fontSize="xs">
             {props.label}
           </Text>

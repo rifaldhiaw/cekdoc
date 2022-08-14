@@ -21,13 +21,12 @@ const theme = extendTheme({
     },
     brand: { ...baseTheme.colors.teal },
     text: {
-      normal: gray[600],
+      normal: gray[500],
       muted: gray[500],
       invert: "#fff",
     },
   },
   components: {
-    Button: { baseStyle: { _focus: { boxShadow: "none" } } },
     Text: {
       baseStyle: {
         color: "text.normal",

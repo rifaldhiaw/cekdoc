@@ -7,7 +7,7 @@ export const AppointmentCard = () => {
         <Avatar />
         <Box ml="4" flex="1">
           <Text fontSize="xl">Dr. Apriyanto</Text>
-          <Text fontSize="sm">Neurologist</Text>
+          <Text fontSize="sm">Ahli saraf</Text>
         </Box>
       </Flex>
       <Flex mt="4" bg="bg.50" px="4" py="1">
