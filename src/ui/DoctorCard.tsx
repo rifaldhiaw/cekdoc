@@ -1,7 +1,7 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 import { FC } from "react";
 
-export const DoctorCard: FC<{}> = () => {
+export const DoctorCard: FC<{ onClick: () => void }> = (props) => {
   return (
     <Flex
       align="center"
@@ -11,10 +11,13 @@ export const DoctorCard: FC<{}> = () => {
       py="6"
       rounded="xl"
       bg="bg.0"
+      onClick={props.onClick}
     >
       <Avatar />
       <Box ml="6" flex={1}>
-        <Text fontSize="xl">Dr. Apriyanto</Text>
+        <Text fontSize="lg" fontWeight="semibold">
+          Dr. Apriyanto
+        </Text>
         <Text fontSize="sm">Ahli saraf</Text>
       </Box>
     </Flex>

@@ -63,10 +63,26 @@ export const Browse = () => {
       <Box bg="white" px="8" flex="1" roundedTop="24px">
         <Box h="36px" />
         <Stack spacing={3}>
-          <DoctorCard />
-          <DoctorCard />
-          <DoctorCard />
-          <DoctorCard />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
         </Stack>
       </Box>
 

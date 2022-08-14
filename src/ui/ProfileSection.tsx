@@ -10,7 +10,7 @@ export const ProfileSection = () => {
         <Text color="white" fontSize="xl" fontWeight="bold">
           Rifaldhi AW
         </Text>
-        <Text color="white" fontSize="sm" lineHeight={1}>
+        <Text color="white" fontSize="sm" lineHeight={1.2}>
           1 janji temu hari ini
         </Text>
       </Box>
@@ -23,7 +23,12 @@ export const ProfileSection = () => {
         >
           Terdekat
         </Text>
-        <Text fontWeight="semibold" fontSize="xl" color="white">
+        <Text
+          fontWeight="semibold"
+          fontSize="xl"
+          color="white"
+          lineHeight={1.2}
+        >
           14:30
         </Text>
       </Box>

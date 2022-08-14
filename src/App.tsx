@@ -2,6 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import { FiCalendar, FiHome, FiUser } from "react-icons/fi";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Browse } from "./pages/Browse";
+import { Doctor } from "./pages/Doctor";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
@@ -41,6 +42,7 @@ function App() {
             }
           />
         </Route>
+        <Route path=":doctorId" element={<Doctor />} />
       </Routes>
       {isLoggedIn && <BottomNavigation />}
     </Flex>

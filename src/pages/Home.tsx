@@ -69,9 +69,9 @@ export const Home = () => {
         </Flex>
         <Box h="16px" />
         <Stack spacing={3}>
-          <DoctorCard />
-          <DoctorCard />
-          <DoctorCard />
+          <DoctorCard onClick={() => navigate("/123")} />
+          <DoctorCard onClick={() => navigate("/111")} />
+          <DoctorCard onClick={() => navigate("/333")} />
         </Stack>
         <Box h="80px" />
       </Box>
