@@ -11,9 +11,14 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { FiSearch, FiSliders, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/appStore";
 import { DoctorCard } from "../ui/DoctorCard";
 
 export const Browse = () => {
+  const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
+  const navigate = useNavigate();
+
   return (
     <Flex
       w="100vw"
@@ -64,6 +69,24 @@ export const Browse = () => {
           <DoctorCard />
         </Stack>
       </Box>
+
+      {!isLoggedIn && (
+        <Button
+          rounded="full"
+          colorScheme="brand"
+          pos="fixed"
+          bottom="8"
+          shadow="lg"
+          left="12"
+          right="12"
+          zIndex={10}
+          size="lg"
+          bgGradient="linear(to-tl, brand.400, brand.300)"
+          onClick={() => navigate("/login")}
+        >
+          Masuk ke Aplikasi
+        </Button>
+      )}
     </Flex>
   );
 };

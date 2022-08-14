@@ -1,4 +1,6 @@
 import { getAnalytics } from "firebase/analytics";
+import { persist } from "zustand/middleware";
+
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -36,10 +38,17 @@ export const useAppStore = create(() => ({
   user: null as User | null,
 }));
 
+export const useAuthStore = create(
+  persist(() => ({
+    isLoggedIn: false,
+  }))
+);
+
 export const useAuth = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       useAppStore.setState({ user });
+      useAuthStore.setState({ isLoggedIn: !!user });
     });
   }, []);
 };

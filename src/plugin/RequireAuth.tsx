@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { useAppStore } from "../store/appStore";
+import { useAuthStore } from "../store/appStore";
 
 export const RequireAuth: FC<{ children: JSX.Element }> = (props) => {
-  let user = useAppStore((s) => s.user);
+  let isLoggedIn = useAuthStore((s) => s.isLoggedIn);
   let location = useLocation();
 
-  if (!user) {
+  if (!isLoggedIn) {
     // Redirect them to the /login page, but save the current location they were
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience

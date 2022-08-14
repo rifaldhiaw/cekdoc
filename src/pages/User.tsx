@@ -8,11 +8,29 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { signOut } from "firebase/auth";
 import { FC } from "react";
 import { IconType } from "react-icons";
 import { FiCommand, FiEdit2, FiPhone, FiPower } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { useAppStore } from "../store/appStore";
 
 export const User = () => {
+  const fireAuth = useAppStore((s) => s.fireAuth);
+  const navigate = useNavigate();
+
+  const handleLogoutClick = () => {
+    signOut(fireAuth).then(() => {
+      navigate("/");
+    });
+  };
+
+  const handleUpdateInfoClick = () => {};
+
+  const handleUpdatePhoneClick = () => {};
+
+  const handleAboutClick = () => {};
+
   return (
     <Flex w="100vw" h="100vh" flexDir="column" overflowX="auto" py="4">
       <Box
@@ -44,28 +62,43 @@ export const User = () => {
 
       <Flex flex={1} overflowY="auto" px="6" mt="4" flexDir="column">
         <Stack spacing={4} w="full" flex={1}>
-          <Menu label={"Rubah data diri"} icon={FiEdit2} />
-          <Menu label={"Rubah nomor telephone"} icon={FiPhone} />
+          <Menu
+            label={"Rubah data diri"}
+            icon={FiEdit2}
+            onClick={handleUpdateInfoClick}
+          />
+          <Menu
+            label={"Rubah nomor telephone"}
+            icon={FiPhone}
+            onClick={handleUpdatePhoneClick}
+          />
           <Divider />
-          <Menu label={"Tentang Aplikasi"} icon={FiCommand} />
+          <Menu
+            label={"Tentang Aplikasi"}
+            icon={FiCommand}
+            onClick={handleAboutClick}
+          />
           <Menu
             label={"Keluar dari aplikasi"}
             icon={FiPower}
             iconColor="red.400"
+            onClick={handleLogoutClick}
           />
         </Stack>
       </Flex>
-
       <Box h="80px" />
     </Flex>
   );
 };
 
-export const Menu: FC<{ label: string; icon: IconType; iconColor?: string }> = (
-  props
-) => {
+export const Menu: FC<{
+  label: string;
+  icon: IconType;
+  iconColor?: string;
+  onClick: () => void;
+}> = (props) => {
   return (
-    <Flex h="56px" px="4" align="center">
+    <Flex h="56px" px="4" align="center" onClick={props.onClick}>
       <Icon
         as={props.icon}
         color={props.iconColor ?? "text.normal"}

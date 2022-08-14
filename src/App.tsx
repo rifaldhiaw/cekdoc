@@ -6,13 +6,15 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Register } from "./pages/Register";
-import { User } from "./pages/user";
+import { User } from "./pages/User";
 import { RequireAuth } from "./plugin/RequireAuth";
-import { useAuth } from "./store/appStore";
+import { useAuth, useAuthStore } from "./store/appStore";
 import { BottomNavButton } from "./ui/BottomNavButton";
 
 function App() {
   useAuth();
+  const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
+  const navigate = useNavigate();
 
   return (
     <Flex w="full" h="full" flexDir="column">
@@ -21,24 +23,26 @@ function App() {
         <Route path="logout" element={<Logout />} />
         <Route path="register" element={<Register />} />
         <Route index element={<Browse />} />
-        <Route
-          path="home"
-          element={
-            <RequireAuth>
-              <Home />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="user"
-          element={
-            <RequireAuth>
-              <User />
-            </RequireAuth>
-          }
-        />
+        <Route path="app">
+          <Route
+            path="home"
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="user"
+            element={
+              <RequireAuth>
+                <User />
+              </RequireAuth>
+            }
+          />
+        </Route>
       </Routes>
-      <BottomNavigation />
+      {isLoggedIn && <BottomNavigation />}
     </Flex>
   );
 }
@@ -63,7 +67,7 @@ export const BottomNavigation = () => {
       <BottomNavButton
         label={"Beranda"}
         icon={FiHome}
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/app/home")}
       />
       <BottomNavButton
         label={"Cari Dokter"}
@@ -73,7 +77,7 @@ export const BottomNavigation = () => {
       <BottomNavButton
         label={"Pengguna"}
         icon={FiUser}
-        onClick={() => navigate("/user")}
+        onClick={() => navigate("/app/user")}
       />
     </Flex>
   );
