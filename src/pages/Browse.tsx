@@ -26,12 +26,12 @@ export const Browse = () => {
       bgGradient="linear(to-tl, brand.400, brand.300)"
       flexDir="column"
     >
-      <Box px="8">
+      <Box px="6">
         <Box h="48px" />
         <SearchSection />
         <Box h="12px" />
-        <Flex align="center" px="3" py="3" rounded={"xl"}>
-          <Icon as={FiSliders} w="24px" h="24px" color="text.invert" />
+        <Flex align="center" px="3" py="1" rounded={"xl"}>
+          <Icon as={FiSliders} w="20px" h="20px" color="text.invert" />
           <HStack flex={1} ml="4">
             <Button
               rounded="2xl"
@@ -57,10 +57,10 @@ export const Browse = () => {
             </Button>
           </HStack>
         </Flex>
-        <Box h="24px" />
+        <Box h="20px" />
       </Box>
 
-      <Box bg="white" px="8" flex="1" roundedTop="24px">
+      <Box bg="white" px="6" flex="1" roundedTop="24px" overflowY="auto">
         <Box h="36px" />
         <Stack spacing={3}>
           <DoctorCard
@@ -83,7 +83,28 @@ export const Browse = () => {
               throw new Error("Function not implemented.");
             }}
           />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <DoctorCard
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
         </Stack>
+        <Box h="100px" />
       </Box>
 
       {!isLoggedIn && (
@@ -110,21 +131,21 @@ export const Browse = () => {
 export const SearchSection = () => {
   return (
     <Flex align="center">
-      <InputGroup size="lg">
+      <InputGroup size="md">
         <InputLeftElement
           pointerEvents="none"
-          children={<Icon as={FiUser} />}
+          children={<Icon as={FiUser} color="text.normal" />}
         />
         <Input type="tel" placeholder="Nama Dokter" rounded="xl" bg="bg.0" />
       </InputGroup>
 
       <Box w="16px" />
       <IconButton
-        size="lg"
+        size="md"
         bg="bg.0"
-        rounded="2xl"
+        rounded="xl"
         aria-label={"Filter"}
-        icon={<Icon as={FiSearch} />}
+        icon={<Icon as={FiSearch} color="text.normal" />}
         variant="outline"
       />
     </Flex>

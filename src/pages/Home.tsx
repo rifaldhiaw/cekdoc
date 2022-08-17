@@ -34,7 +34,7 @@ export const Home = () => {
 
       <Box
         bg="white"
-        px="8"
+        px="5"
         rounded="24px"
         mx="6"
         py="8"
@@ -43,19 +43,27 @@ export const Home = () => {
         shadow="md"
       >
         <Flex justify="space-between">
-          <Text fontWeight="semibold" fontSize="lg" textAlign="center">
+          <Text fontWeight="semibold" textAlign="center">
             Janji Temu
           </Text>
-          <Text fontSize="lg" textAlign="center" color="brand.400">
+          <Text textAlign="center" color="brand.400">
             Lihat semua
           </Text>
         </Flex>
-        <Box h="24px" />
+        <Box h="20px" />
         <Stack spacing="4">
           <AppointmentCard />
           <AppointmentCard />
-          <Center py="1" bg="bg.50" rounded="md">
-            <Text>7 janji temu lagi...</Text>
+          <Center
+            py="1"
+            bg="bg.50"
+            rounded="md"
+            border="1px"
+            borderColor="bg.200"
+          >
+            <Text color="brand.400" fontSize="sm">
+              7 janji temu lagi...
+            </Text>
           </Center>
         </Stack>
       </Box>
@@ -64,7 +72,7 @@ export const Home = () => {
         <Box h="36px" />
         <Flex justify="space-between" px="2">
           <Text fontWeight="semibold" fontSize="lg" textAlign="center">
-            Terkahir dilihat
+            Terakahir dilihat
           </Text>
         </Flex>
         <Box h="16px" />

@@ -32,9 +32,9 @@ export const User = () => {
   const handleAboutClick = () => {};
 
   return (
-    <Flex w="100vw" h="100vh" flexDir="column" overflowX="auto" py="4">
+    <Flex w="100vw" h="100vh" flexDir="column" overflowY="auto" py="4">
       <Box
-        my="4"
+        my="2"
         bgGradient="linear(to-tl, brand.400, brand.200)"
         rounded="3xl"
         shadow="lg"
@@ -42,25 +42,30 @@ export const User = () => {
         textAlign="center"
       >
         <Flex justify="center" flexDir="column" align="center">
-          <Circle mt="10" bg="bg.0" p="1">
+          <Circle mt="8" bg="bg.0" p="1">
             <Avatar size="lg" />
           </Circle>
-          <Text mt="3" color="white" fontSize="xl" fontWeight="semibold">
+          <Text mt="3" color="white" fontSize="lg" fontWeight="semibold">
             Rifaldhi Ardhi Wiyanto
           </Text>
         </Flex>
 
-        <Stack mt="6" spacing={2} bg="#00000010" px="8" py="8">
-          <BioInfo label={"No Telephone"} value={"081366778811"} />
-          <BioInfo label={"Alamat"} value={"Rukti Sediyo, Kec. Raman Utara"} />
-          <BioInfo
-            label={"Tanggal Lahir"}
-            value={"Rukti Sediyo, 1 Januari 1980"}
-          />
-        </Stack>
+        <Box overflow="hidden" rounded="3xl">
+          <Stack mt="4" spacing={2} bg="#00000010" px="5" py="6">
+            <BioInfo label={"No Telephone"} value={"081366778811"} />
+            <BioInfo
+              label={"Alamat"}
+              value={"Rukti Sediyo, Kec. Raman Utara"}
+            />
+            <BioInfo
+              label={"Tanggal Lahir"}
+              value={"Rukti Sediyo, 1 Januari 1980"}
+            />
+          </Stack>
+        </Box>
       </Box>
 
-      <Flex flex={1} overflowY="auto" px="6" mt="4" flexDir="column">
+      <Flex flex={1} px="6" mt="4" flexDir="column">
         <Stack spacing={4} w="full" flex={1}>
           <Menu
             label={"Rubah data diri"}
@@ -85,8 +90,8 @@ export const User = () => {
             onClick={handleLogoutClick}
           />
         </Stack>
+        <Box h="20" />
       </Flex>
-      <Box h="80px" />
     </Flex>
   );
 };
@@ -98,16 +103,14 @@ export const Menu: FC<{
   onClick: () => void;
 }> = (props) => {
   return (
-    <Flex h="56px" px="4" align="center" onClick={props.onClick}>
+    <Flex h="36px" px="4" align="center" onClick={props.onClick}>
       <Icon
         as={props.icon}
         color={props.iconColor ?? "text.normal"}
-        w="6"
-        h="6"
+        w="5"
+        h="5"
       />
-      <Text fontSize="xl" ml="8">
-        {props.label}
-      </Text>
+      <Text ml="8">{props.label}</Text>
     </Flex>
   );
 };
